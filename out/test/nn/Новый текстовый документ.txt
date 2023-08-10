@@ -1,0 +1,19 @@
+# Evaluate the model on the test data
+model.eval()
+with torch.no_grad():
+    inputs = torch.tensor(x_test[val_size:], dtype=torch.float32)
+    labels = torch.tensor(y_test[val_size:], dtype=torch.long)
+    outputs = model(inputs)
+    _, predicted = torch.max(outputs, 1)
+    accuracy = (predicted == labels).sum().item() / labels.size(0)
+
+print("Test Accuracy: ", accuracy)
+
+# Save the model weights and training history
+weight_path = 'path/to/save/weights.pt'
+history_path = 'path/to/save/history.pkl'
+torch.save(model.state_dict(), weight_path)
+
+history_dict = {'accuracy': accuracy}
+with open(history_path, 'wb') as f:
+    pickle.dump(history_dict, f)

@@ -1,0 +1,23 @@
+if __name__ == '__main__':
+    #filename ='C:/Users/Admin/Desktop/Диплом/НИР/nn/boston_data.csv'
+    filename ='C:/Users/Admin/Desktop/Диплом/НИР/nn/boston_housing_data.XLSX'
+    #'C:/Users/Admin/Desktop/Диплом/НИР/nn/mnist_data.csv'
+    #'C:/Users/Admin/Desktop/Диплом/НИР/nn/boston_data.csv'
+    #'C:/Users/Admin/Desktop/Диплом/НИР/nn/abalone_data.csv'
+    #abandon (1,7) (1,1)
+    #mnist (1,28,28,1) (1,10)
+    #boston (1,13) (1,1)
+    import dataloader 
+    import confutils
+    a, b = dataloader.load_data(filename, [0], col_names=True, drop_na=False, inp_shape = (1,13), out_shape = (1,))
+    print(a.shape)
+    print(b.shape)
+    print("Hello")
+    fn = 'C:/Users/Admin/Desktop/VS/main/data/abalone_data.csv'
+    p=confutils.get_fit_param("C:\\Users\\Admin\\Desktop\\VS\\test\\models\\config.ini")
+    print(p)
+    dst = os.path.dirname(os.path.abspath(__file__))
+    gen_keras_model_fitting(p['model_path'], dst,  p['dataset_path'],
+                            p['epochs'], p['batch_size'], p['split_size'], 
+                            p['input_shape'], p['output_shape'], p['res_cols'], p['loss'], p['metric'],
+                            p['drop_na'], p['col_names'])
