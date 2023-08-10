@@ -1,9 +1,9 @@
-#Training script builders for custom Keras and PyTorch models
+# Training script builders for custom Keras and PyTorch models
 This is a desktop application for training fully connected and convolutional neural network models. To do this you need to configure the learning process, specify your model and dataset via the GUI. Then a training script with realtime output of progress will be generated and launched.
 
-#![GUI](/out/mnist/gui.jpg?raw=true)
+# ![GUI](/out/mnist/gui.jpg?raw=true)
 
-#Features(Limitations)
+# Features(Limitations)
 - Training, testing and validating models
 - Saving model weights and learning history
 - Metric and loss function graphs
